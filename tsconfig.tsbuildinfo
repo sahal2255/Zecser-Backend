@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/config/db.connect.ts","./src/controllers/profile.controller.ts","./src/middlewares/auth.middleware.ts","./src/models/profile.model.ts","./src/routes/auth.route.ts","./src/routes/profile.route.ts","./src/utils/generatesample.jwt.ts"],"version":"5.8.3"}
