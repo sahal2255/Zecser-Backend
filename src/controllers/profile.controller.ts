@@ -16,18 +16,18 @@ export const addProfileDetails = async (req: Request, res: Response): Promise<vo
       return;
     }
 
-    // if (!req.file) {
-    //   res.status(400).json({ message: "Profile image is required" });
-    //   return;
-    // }
+    if (!req.file) {
+      res.status(400).json({ message: "Profile image is required" });
+      return;
+    }
 
-    // const base64Image = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`;
+    const base64Image = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`;
 
-    // const result = await cloudinary.uploader.upload(base64Image, {
-    //   folder: "zecserprofileimages",
-    // });
+    const result = await cloudinary.uploader.upload(base64Image, {
+      folder: "zecserprofileimages",
+    });
 
-    // const imageUrl = result.secure_url;
+    const imageUrl = result.secure_url;
 
     const user = await User.findOne({ userId });
     if (!user) {
@@ -38,7 +38,7 @@ export const addProfileDetails = async (req: Request, res: Response): Promise<vo
     user.about = about;
     user.phoneNumber = phoneNumber;
     user.github = github;
-    // user.profileImage = imageUrl;
+    user.image = imageUrl;
     user.education = education;
     user.experience = experience;
 

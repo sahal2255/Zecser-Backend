@@ -26,7 +26,7 @@ const profileSchema = new mongoose.Schema(
     ],
     phoneNumber: { type: String },
     github: { type: String },
-    profileImage: { type: String },
+    image: { type: String },
     resume: { type: String },
   },
   // { timestamps: true }
